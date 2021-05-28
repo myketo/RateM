@@ -15,7 +15,7 @@ use App\Http\Controllers\RegistrationController;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('home.welcome');
 });
 
 Route::get('/register', [RegistrationController::class, 'create']);
@@ -24,3 +24,7 @@ Route::post('register', [RegistrationController::class, 'store']);
 Route::get('/login', [LoginController::class, 'create']);
 Route::post('login', [LoginController::class, 'store']);
 Route::get('/logout', [LoginController::class, 'destroy']);
+
+Route::get('profile', function () {
+    return view('user.profile');
+})->middleware('auth');
