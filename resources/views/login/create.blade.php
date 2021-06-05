@@ -12,7 +12,7 @@
             <h1 class="h1 mb-4 fw-normal">Login</h1>
         
             <div class="form-floating mb-1">
-                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name='email' autofocus>
+                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name='email'>
                 <label for="floatingInput">Email address</label>
             </div>
             <div class="form-floating mb-1">

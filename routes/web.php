@@ -1,8 +1,14 @@
 <?php
 
+use App\Http\Controllers\ItemListController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegistrationController;
+use App\Http\Controllers\UserController;
+use App\Models\ItemList;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,6 +31,12 @@ Route::get('/login', [LoginController::class, 'create']);
 Route::post('login', [LoginController::class, 'store']);
 Route::get('/logout', [LoginController::class, 'destroy']);
 
-Route::get('profile', function () {
-    return view('user.profile');
-})->middleware('auth');
+Route::get('/user/{user:name}', [UserController::class, 'show'])->middleware('auth');
+
+Route::resource('user.list', ItemListController::class)->parameters([
+    'user' => 'user:name',
+    'list' => 'list:name',
+])->except([
+    'list.index'
+]);
+Route::get('/user/{user:name}/lists', [ItemListController::class, 'index']);

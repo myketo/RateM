@@ -18,9 +18,9 @@
             <h1>Welcome, {{ auth()->user()->name }}!</h1>
             <p class="lead">Here are a few actions that you may like to take: </p>
             <p class="lead">
-                <a href="#" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Browse your lists</a>
-                <a href="#" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Create a new list</a>
+                <a href="/user/{{ auth()->user()->name }}/lists" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Browse your lists</a>
+                <a href="/user/{{ auth()->user()->name }}/list/create" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Create a new list</a>
             </p>
         @endauth
-    </main>    
+    </main>
 @endsection
