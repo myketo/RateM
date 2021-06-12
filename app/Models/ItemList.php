@@ -13,10 +13,11 @@ class ItemList extends Model
     public $timestamps = true;
 
     protected $fillable = [
+        'user_id',
         'name', 
         'description', 
         'type', 
-        'image',
+        'cover',
     ];
 
     public function user()

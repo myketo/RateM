@@ -8,6 +8,19 @@
         @endguest
 
         @auth
+        <a class="nav-link @if(request()->is('user/' . auth()->user()->name . '/lists')) active @endif" href="/user/{{ auth()->user()->name }}/lists">Lists</a>
+        {{-- HOW TO DO A DROPDOWN IN NAV
+            <div class="dropdown nav-item mx-3">
+            <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+              Lists
+            </a>
+          
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <li><a class="dropdown-item" href="#">New list</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </div> --}}
             <a class="nav-link @if(request()->is('user/' . auth()->user()->name)) active @endif" href="/user/{{ strtolower(auth()->user()->name) }}">Profile</a>
             <a class="nav-link" href="/logout">Logout</a>
         @endauth

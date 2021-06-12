@@ -17,9 +17,9 @@ class CreateListsTable extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->string('name');
-            $table->string('description');
+            $table->string('description')->nullable();
             $table->string('type');
-            $table->string('image');
+            $table->string('cover');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

@@ -2,11 +2,13 @@
 
 @section('content')
     <main>
-        @if(auth()->user()->name == $user->name)
-            <p>This is your profile.</p>
-        @endif
+        @auth
+            @if(auth()->user()->name == $user->name)
+                <p>This is your profile.</p>
+            @endif
+        @endauth
         
-        <h4>Your data: </h4>
+        <h4>User data: </h4>
         <p>Name: {{ $user->name }}</p>
         <p>Email: {{ $user->email }}</p>
         <br>
